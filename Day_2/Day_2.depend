@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1637268790 source:d:\c++\day_2\main.cpp
+	<iostream>
+	<typeinfo>
+
+1637268911 source:d:\c++\day_2\reference_var.cpp
+	<iostream>
+
