@@ -3,22 +3,37 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
+#include <iomanip>
 using namespace std;
 double getAvg(string marks);
 string getGrade(double avg);
 int main()
 {
     ifstream f;
+    ofstream f2;
     f.open("data2.txt");
     if(!f){
         cout<<"Error in opening file"<<endl;
         exit(1);
     }
+    f2.open("Read_and_parse.txt");
+    if(!f2){
+        cout<<"Error in writing the date in text file"<<endl;
+        exit(1);
+    }
     string line;
+    /* cout<< setw(15)<<left<<"Name"<<" "
+    << setw(7) <<left<<"Average"<<" "
+    <<setw(5)<<left<< " Grade" << " "<<endl;
+    cout<<string(30,'-')<<endl; */
+    f2<< setw(15)<<left<<"Name"<<" "
+    << setw(7) <<left<<"Average"<<" "
+    <<setw(5)<<left<< " Grade" << " "<<endl;
+    f2<<string(30,'-')<<endl;
     while (!f.eof())
     {
         getline(f,line);
-        cout<<"Original line : "<<line<<endl;
+        //cout<<"Original line : "<<line<<endl;
         istringstream var(line);
         string name;
         string marks;
@@ -28,9 +43,15 @@ int main()
         double avg_value = getAvg(marks);
         // cout<<"avg: " <<avg_value<<endl;
         string grade_val = getGrade(avg_value);
-        cout<<"Name : "<<name<<" -- Marks : "<<marks<<" --Average : "<<avg_value<<" --grade : "<<grade_val<<endl;    
+        f2<<setw(15)<<left<<name
+            <<setw(7)<<right<<setprecision(2)<<fixed<<avg_value
+            <<setw(5)<<right<<grade_val<<endl;
+
+        /* cout<<"Name : "<<name<<" -- Marks : "<<marks<<" --Average : "<<avg_value<<" --grade : "<<grade_val<<endl; */    
     }
-    
+    f.close();
+    f2.close();
+    cout<<"Read_and_parse.txt generated. "<<endl;
     return 0;
 }
 
