@@ -8,7 +8,7 @@ int fun(int*,int*);
 int main()
 {
     //cout << "Hello world!" << endl;
-    /*
+    /* 
     int s = 50,t = 2;
     cout<<"Address of int s : "<<(unsigned long long)&s<<endl;
     cout<<"Address of int t : "<<(unsigned long long)&t<<endl;
@@ -30,8 +30,9 @@ int main()
 
     a +=1;
     cout<<"Content now : "<< a<<endl;
-    */
-    /*
+   
+ */   
+ /*
     int temp1 = 50, temp2 = 100, temp3 = 200;
     int *t = &temp2;
     cout<<"Address of temp1 : "<<&temp1<<endl;
@@ -50,10 +51,10 @@ int main()
     j = (char *)&temp2;
     cout<<"*k is : "<<j<<endl;
     */
+   
     int a {20}, b {30};
     fun(&a,&b);
     cout<<"A : "<<a<<" "<<"B : "<<b<<endl;
-
     return 0;
 }
 int fun(int *v1,int *v2){
